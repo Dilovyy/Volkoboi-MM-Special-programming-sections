@@ -23,7 +23,8 @@ jobs:
 
     - name: Configure and Build
       run: |
-        mkdir build
+        cd lab3
+        mkdir -p build
         cd build
         cmake ..
         make -j$(nproc)

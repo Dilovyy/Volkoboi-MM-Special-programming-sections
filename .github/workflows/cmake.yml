@@ -1,4 +1,4 @@
-name: CI Build Check
+name: Lab3 Build
 
 on:
   push:
@@ -21,6 +21,7 @@ jobs:
 
     - name: Run Preinstall Script
       run: |
+        cd lab3
         chmod +x preinstall.sh
         ./preinstall.sh
 

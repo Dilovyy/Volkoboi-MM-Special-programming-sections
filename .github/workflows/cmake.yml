@@ -25,13 +25,13 @@ jobs:
         chmod +x preinstall.sh
         ./preinstall.sh
 
-    - name: Configure CMake
+    - name: Configure and Build
       run: |
         mkdir build
         cd build
         cmake ..
-
-    - name: Build Project
-      run: |
+        
         cd build
         make -j$(nproc)
+
+        

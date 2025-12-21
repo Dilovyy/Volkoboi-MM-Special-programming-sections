@@ -1,10 +1,6 @@
 name: Lab3 Build
 
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -30,8 +26,6 @@ jobs:
         mkdir build
         cd build
         cmake ..
-        
-        cd build
         make -j$(nproc)
 
         

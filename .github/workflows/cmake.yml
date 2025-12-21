@@ -1,0 +1,32 @@
+name: Lab3 Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake g++ libopencv-dev wget
+
+    - name: Run Preinstall Script
+      run: |
+        cd lab3
+        chmod +x preinstall.sh
+        ./preinstall.sh
+
+    - name: Configure and Build
+      run: |
+        cd lab3
+        mkdir -p build
+        cd build
+        cmake ..
+        make -j$(nproc)
+
+        
